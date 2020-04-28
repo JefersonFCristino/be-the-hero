@@ -34,6 +34,7 @@ module.exports = {
         const { title, description, value } = request.body
         const ong_id = request.headers.authorization
 
+        // desestruturar de dentro de um array
         const [id] = await connection('incidents').insert({
             title,
             description,
@@ -41,7 +42,7 @@ module.exports = {
             ong_id
         })
 
-        return response.json({ id })
+        return response.json({ id }) // não mandar só um numero mas sim um json com "id": 1
     },
 
     async delete(request, response) {
